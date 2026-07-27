@@ -317,8 +317,35 @@ a:hover .nav-brand{ color:var(--peony) }
 
 /* ── reveal (JS-driven) ─────────────────────────────────
    Скрываем ТОЛЬКО когда JS есть (класс .js ставится
-   инлайн-скриптом в <head>). Без JS всё видно по умолчанию. */
-.js .reveal,.js .hero-el{ opacity:0 }
+   инлайн-скриптом в <head>). Без JS всё видно по умолчанию.
+   Эти блоки лежат ниже первого экрана, поэтому задержка до
+   загрузки GSAP глазу не видна. */
+.js .reveal{ opacity:0 }
+
+/* ── герой: анимация на CSS, а не на GSAP ───────────────
+   main.js догружается примерно на 800 мс, и до этого момента герой
+   висел невидимым, а потом резко оживал. CSS-анимация стартует
+   на первой же отрисовке, поэтому рывка нет. */
+@keyframes heroIn{
+  from{ opacity:0; transform:translateY(22px) }
+  to  { opacity:1; transform:none }
+}
+@keyframes heroMediaIn{
+  from{ opacity:0; transform:translateY(34px) scale(.96) }
+  to  { opacity:1; transform:none }
+}
+
+.js .hero-el{ opacity:0; animation:heroIn .7s var(--ease) both }
+.js .hero-el:nth-child(1){ animation-delay:0s }
+.js .hero-el:nth-child(2){ animation-delay:.09s }
+.js .hero-el:nth-child(3){ animation-delay:.18s }
+.js .hero-el:nth-child(4){ animation-delay:.27s }
+.js .hero-el:nth-child(5){ animation-delay:.36s }
+
+.js .hero-ph{ opacity:0; animation:heroMediaIn .85s var(--ease) both }
+.js .hero-ph:nth-child(1){ animation-delay:.15s }
+.js .hero-ph:nth-child(2){ animation-delay:.27s }
+.js .hero-ph:nth-child(3){ animation-delay:.39s }
 
 /* ── reduced motion ─────────────────────────────────── */
 @media (prefers-reduced-motion:reduce){
@@ -327,7 +354,9 @@ a:hover .nav-brand{ color:var(--peony) }
     animation-duration:.01ms !important; animation-iteration-count:1 !important;
     transition-duration:.01ms !important;
   }
-  .reveal,.hero-el{ opacity:1 !important; transform:none !important }
+  .reveal,.hero-el,.hero-ph{
+    opacity:1 !important; transform:none !important; animation-delay:0s !important;
+  }
   .petal-field{ display:none }
   .ph:hover img{ transform:none }
 }

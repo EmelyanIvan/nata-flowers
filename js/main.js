@@ -148,25 +148,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const hasGSAP = typeof window.gsap !== 'undefined';
 
-  // страховка: если GSAP не загрузился или движение отключено, просто показать всё
+  // Страховка: если GSAP не загрузился или движение отключено, показать блоки.
+  // Герой не трогаем, им целиком занимается CSS.
   if (!hasGSAP || reduced) {
-    document.querySelectorAll('.reveal, .hero-el').forEach(el => { el.style.opacity = 1; });
+    document.querySelectorAll('.reveal').forEach(el => { el.style.opacity = 1; });
     return;
   }
 
   gsap.registerPlugin(ScrollTrigger);
 
   /* ── герой ─────────────────────────────────────── */
-  // fromTo, а не from: в CSS у .hero-el уже opacity:0,
-  // поэтому from анимировал бы «из 0 в 0» и герой остался бы пустым.
-  gsap.timeline({ defaults: { ease: 'power3.out' } })
-    .fromTo('.hero-el',
-      { opacity: 0, y: 22 },
-      { opacity: 1, y: 0, duration: .7, stagger: .09 })
-    .fromTo('.hero-ph',
-      { opacity: 0, y: 34, scale: .96 },
-      { opacity: 1, y: 0, scale: 1, duration: .85, stagger: .12, clearProps: 'transform' },
-      .15);
+  // Герой здесь НЕ анимируется: это делает CSS (@keyframes heroIn),
+  // чтобы анимация начиналась на первой отрисовке, а не после
+  // загрузки этого файла. Не возвращайте сюда GSAP-таймлайн для героя.
 
   /* ── появление секций при скролле ──────────────── */
   gsap.utils.toArray('.reveal').forEach(el => {

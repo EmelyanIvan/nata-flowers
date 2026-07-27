@@ -1,0 +1,13 @@
+{
+  "name": "nata-flowers",
+  "private": true,
+  "description": "Сайт-визитка: цветы с собственного участка, Гомель",
+  "scripts": {
+    "css": "tailwindcss -c tailwind.config.js -i src/input.css -o css/tailwind.css --minify",
+    "css:watch": "tailwindcss -c tailwind.config.js -i src/input.css -o css/tailwind.css --watch",
+    "serve": "python -m http.server 5173 --bind 127.0.0.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
