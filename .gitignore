@@ -1,0 +1,8 @@
+# служебное
+.DS_Store
+Thumbs.db
+node_modules/
+
+# скиллы Higgsfield, установленные в проект: к сайту не относятся
+.claude/
+skills-lock.json

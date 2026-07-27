@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nata Flowers: цветы с моей клумбы | Гомель</title>
+<meta name="description" content="Выращиваю цветы на своём участке в Гомеле и собираю букеты на заказ. Срезаю при вас и упаковываю. Свежее не бывает. Самовывоз, Западный район.">
+<meta name="theme-color" content="#2E5E3A">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nata Flowers: цветы с моей клумбы">
+<meta property="og:description" content="Пионы, розы и ромашки со своего участка в Гомеле. Срезаю при вас. Букеты на заказ.">
+<meta property="og:image" content="images/og.jpg">
+<meta property="og:locale" content="ru_RU">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        cream:   { DEFAULT: '#FDFAF6', 2: '#F5EDE4', 3: '#EDE0D2' },
+        ink:     { DEFAULT: '#1E2A1C', soft: '#4A5A46' },
+        garden:  { DEFAULT: '#2E5E3A', dk: '#1D3F26', lt: '#8FB89A' },
+        peony:   { DEFAULT: '#B92F58', lt: '#E58BA5', pale: '#F7DFE6' },
+        gold:    '#B8912F'
+      },
+      fontFamily: {
+        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        sans:    ['Manrope', 'system-ui', 'sans-serif'],
+        /* каллиграфия: Great Vibes, кириллица подтверждена (U+0400-045F) */
+        hand:    ['"Great Vibes"', 'cursive']
+      },
+      maxWidth: { content: '76rem' }
+    }
+  }
+}
+</script>
+<link rel="stylesheet" href="css/styles.css">
+<script>
+/* Должно существовать ДО картинок: main.js подключён с defer и выполнится
+   уже после того, как отсутствующие фото успеют выдать onerror. */
+document.documentElement.classList.add('js');
+function phFail(img){ var f = img.closest('.ph'); if (f) f.classList.add('is-empty'); }
+</script>
+</head>
+
+<body class="bg-cream text-ink font-sans antialiased">
+
+<a href="#main" class="skip-link">Перейти к содержанию</a>
+
+<!-- ══ NAV ══ -->
+<header id="nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+  <div class="mx-auto max-w-content px-5 sm:px-8">
+    <nav class="flex items-center justify-between gap-4 py-4" aria-label="Основная навигация">
+      <a href="#hero" class="group flex items-baseline gap-2 shrink-0">
+        <span class="font-display text-2xl sm:text-[1.75rem] font-600 tracking-tight nav-brand">Nata Flowers</span>
+        <span class="hidden sm:inline font-hand text-2xl leading-none text-peony">Гомель</span>
+      </a>
+
+      <ul class="hidden lg:flex items-center gap-7 text-[0.9rem] font-500 nav-links">
+        <li><a href="#how"     class="nav-a">Как это работает</a></li>
+        <li><a href="#bloom"   class="nav-a">Что цветёт</a></li>
+        <li><a href="#bouquets" class="nav-a">Букеты</a></li>
+        <li><a href="#gallery" class="nav-a">Галерея</a></li>
+        <li><a href="#reviews" class="nav-a">Отзывы</a></li>
+        <li><a href="#contact" class="nav-a">Контакты</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="#contact" data-contact="primary"
+           class="btn btn--sm btn--peony">Написать</a>
+        <button type="button" id="burger" class="burger lg:hidden"
+                aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
+          <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="mobile-menu lg:hidden" hidden>
+      <ul>
+        <li><a href="#how">Как это работает</a></li>
+        <li><a href="#bloom">Что цветёт</a></li>
+        <li><a href="#bouquets">Букеты на заказ</a></li>
+        <li><a href="#gallery">Галерея</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#pickup">Самовывоз</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ══ HERO ══ -->
+<section id="hero" class="relative min-h-[100svh] flex items-center overflow-hidden pt-24 pb-16">
+  <div class="hero-bg absolute inset-0 -z-10" aria-hidden="true"></div>
+  <div class="petal-field absolute inset-0 -z-10 pointer-events-none" aria-hidden="true"></div>
+
+  <div class="mx-auto max-w-content px-5 sm:px-8 w-full">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+
+      <div class="lg:col-span-6 xl:col-span-5">
+        <p class="hero-el eyebrow mb-5">
+          <span class="eyebrow-dot" aria-hidden="true"></span>
+          Гомель · Западный район
+        </p>
+
+        <h1 class="hero-el font-display leading-[0.95] tracking-[-0.02em] mb-6
+                   text-[clamp(2.75rem,9vw,5.5rem)]">
+          Цветы<br>
+          <span class="italic text-peony">с моей клумбы</span>
+        </h1>
+
+        <p class="hero-el text-lg sm:text-xl text-ink-soft leading-relaxed max-w-xl mb-3">
+          Выращиваю сама, на своём участке. Срезаю&nbsp;<strong class="text-ink font-600">при вас</strong>
+          и тут же упаковываю. От клумбы до ваших рук проходят считанные минуты.
+        </p>
+        <p class="hero-el font-hand text-[2.5rem] leading-tight text-garden mb-9">Ваша Наталья</p>
+
+        <div class="hero-el flex flex-wrap gap-3">
+          <a href="#contact" data-contact="instagram" class="btn btn--peony">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/>
+              <circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/>
+            </svg>
+            Написать в Instagram
+          </a>
+          <a href="#contact" data-contact="telegram" class="btn btn--ghost">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M21.5 4.3 2.9 11.4c-.9.35-.88 1.63.03 1.95l4.7 1.63 1.8 5.5c.26.8 1.29.99 1.82.33l2.5-3.1 4.7 3.45c.6.44 1.46.11 1.62-.62l3.06-14.2c.17-.8-.6-1.5-1.63-1.04z"/>
+              <path d="m7.6 15 10.9-8.2-8.6 9.5"/>
+            </svg>
+            Telegram
+          </a>
+          <a href="#contact" data-contact="phone" class="btn btn--ghost">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M6.2 3.5h3l1.5 4-2 1.4a13 13 0 0 0 6.4 6.4l1.4-2 4 1.5v3a2 2 0 0 1-2.2 2A17.5 17.5 0 0 1 4.2 5.7 2 2 0 0 1 6.2 3.5z"/>
+            </svg>
+            Позвонить
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6 xl:col-span-7">
+        <div class="hero-media grid grid-cols-5 grid-rows-6 gap-3 sm:gap-4 h-[58vh] min-h-[380px] lg:h-[76vh]">
+          <figure class="ph hero-ph col-span-3 row-span-6 rounded-[2rem]" data-label="Пионы крупным планом">
+            <img src="images/hero-peonies.jpg" alt="Букет пионов, срезанных на участке" loading="eager" fetchpriority="high" onerror="phFail(this)">
+          </figure>
+          <figure class="ph hero-ph col-span-2 row-span-3 rounded-[1.5rem]" data-label="Клумба в саду">
+            <img src="images/garden.jpg" alt="Цветочная клумба на участке" loading="eager" onerror="phFail(this)">
+          </figure>
+          <figure class="ph hero-ph col-span-2 row-span-3 rounded-[1.5rem]" data-label="Упакованный букет">
+            <img src="images/wrapped.jpg" alt="Готовый букет в упаковке" loading="lazy" onerror="phFail(this)">
+          </figure>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <a href="#trust" class="scroll-cue" aria-label="Прокрутить вниз">
+    <span class="scroll-cue__line" aria-hidden="true"></span>
+  </a>
+</section>
+
+<!-- ══ TRUST BAR ══ -->
+<section id="trust" class="bg-garden-dk text-cream py-6 sm:py-7">
+  <div class="mx-auto max-w-content px-5 sm:px-8">
+    <ul class="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-5 text-center md:text-left">
+      <li class="reveal trust-item"><span class="trust-k">Срезаю при вас</span><span class="trust-v">не со склада</span></li>
+      <li class="reveal trust-item"><span class="trust-k">Свой участок</span><span class="trust-v">не перекупка</span></li>
+      <li class="reveal trust-item"><span class="trust-k">Самовывоз</span><span class="trust-v">Гомель, Западный</span></li>
+      <li class="reveal trust-item"><span class="trust-k">Букеты на заказ</span><span class="trust-v">расскажите повод, подберу</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ HOW ══ -->
+<section id="how" class="section">
+  <div class="mx-auto max-w-content px-5 sm:px-8">
+    <header class="section-head">
+      <p class="eyebrow reveal"><span class="eyebrow-dot" aria-hidden="true"></span>Как это работает</p>
+      <h2 class="h2 reveal">Три шага до вашего букета</h2>
+      <p class="lede reveal">Без магазина, без наценки и без «этот привезли неделю назад».</p>
+    </header>
+
+    <ol class="grid md:grid-cols-3 gap-6 lg:gap-8 counter-reset">
+      <li class="step reveal">
+        <span class="step-num" aria-hidden="true">1</span>
+        <h3 class="step-h">Пишете мне</h3>
+        <p class="step-p">Расскажите, на какой повод и когда нужно. Подскажу, что сейчас в цвету и как лучше собрать.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step-num" aria-hidden="true">2</span>
+        <h3 class="step-h">Срезаю при вас</h3>
+        <p class="step-p">Приезжаете к назначенному часу и выбираете прямо на клумбе. Срезаю то, на что вы показали.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step-num" aria-hidden="true">3</span>
+        <h3 class="step-h">Упаковываю и отдаю</h3>
+        <p class="step-p">Собираю букет, оформляю и подрезаю стебли. Домой цветы едут уже готовыми к вазе.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══ BLOOM CALENDAR ══ -->
+<section id="bloom" class="section bg-cream-2">
+  <div class="mx-auto max-w-content px-5 sm:px-8">
+    <header class="section-head">
+      <p class="eyebrow reveal"><span class="eyebrow-dot" aria-hidden="true"></span>Что цветёт</p>
+      <h2 class="h2 reveal">Календарь клумбы</h2>
+      <p class="lede reveal">У живого сада своё расписание: из-за погоды сроки сдвигаются на пару недель. Что цветёт сейчас, спросите в переписке.</p>
+    </header>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+      <article class="bloom-card reveal">
+        <figure class="ph bloom-ph" data-label="Пионы"><img src="images/bloom-peony.jpg" alt="Пионы" loading="lazy" onerror="phFail(this)"></figure>
+        <div class="bloom-body">
+          <h3 class="bloom-h">Пионы</h3>
+          <p class="bloom-season">с конца мая по июнь</p>
+          <p class="bloom-p">Главное событие сезона. Цветут недолго, около трёх недель.</p>
+        </div>
+      </article>
+
+      <article class="bloom-card reveal">
+        <figure class="ph bloom-ph" data-label="Розы"><img src="images/bloom-rose.jpg" alt="Садовые розы" loading="lazy" onerror="phFail(this)"></figure>
+        <div class="bloom-body">
+          <h3 class="bloom-h">Садовые розы</h3>
+          <p class="bloom-season">с июня по сентябрь</p>
+          <p class="bloom-p">Кустовые и одиночные, от кремовых до тёмно-красных. Цветут волнами всё лето.</p>
+        </div>
+      </article>
+
+      <article class="bloom-card reveal">
+        <figure class="ph bloom-ph" data-label="Ромашки"><img src="images/bloom-daisy.jpg" alt="Ромашки" loading="lazy" onerror="phFail(this)"></figure>
+        <div class="bloom-body">
+          <h3 class="bloom-h">Ромашки</h3>
+          <p class="bloom-season">с июня по июль</p>
+          <p class="bloom-p">Простые и тёплые. Хорошо идут и соло охапкой, и как «воздух» в сборном букете.</p>
+        </div>
+      </article>
+    </div>
+
+    <p class="mt-8 text-center text-sm text-ink-soft reveal">
+      В списке не всё, что цветёт. <a href="#contact" data-contact="primary" class="link">Спросите, что сейчас на клумбе</a>.
+    </p>
+  </div>
+</section>
+
+<!-- ══ BOUQUETS ══ -->
+<section id="bouquets" class="section">
+  <div class="mx-auto max-w-content px-5 sm:px-8">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <figure class="ph bouquet-ph reveal order-last lg:order-first" data-label="Букет на заказ">
+        <img src="images/bouquet.jpg" alt="Собранный букет на заказ" loading="lazy" onerror="phFail(this)">
+      </figure>
+      <div>
+        <p class="eyebrow reveal"><span class="eyebrow-dot" aria-hidden="true"></span>Букеты на заказ</p>
+        <h2 class="h2 reveal">Назовите повод, соберу букет</h2>
+        <p class="lede reveal">
+          Напишите, для кого и по какому случаю: день рождения, выписка, 1 сентября, просто так.
+          Подберу сочетание из того, что в цвету, и оформлю. Есть любимый цвет или
+          «только без лилий»? Тоже учту.
+        </p>
+        <ul class="check-list reveal">
+          <li>Монобукет из одного вида</li>
+          <li>Сборный из сезонных цветов</li>
+          <li>Охапка без оформления дешевле</li>
+        </ul>
+        <p class="note reveal">
+          Цена зависит от состава и размера. Назову сразу, как обсудим. Договариваемся заранее:
+          букет собираю под вас, а не держу готовым.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALLERY ══ -->
+<section id="gallery" class="section bg-cream-2">
+  <div class="mx-auto max-w-content px-5 sm:px-8">
+    <header class="section-head">
+      <p class="eyebrow reveal"><span class="eyebrow-dot" aria-hidden="true"></span>Галерея</p>
+      <h2 class="h2 reveal">Мои работы</h2>
+      <p class="lede reveal">Всё на этих фото выросло на моём участке.</p>
+    </header>
+
+    <div class="gallery-grid">
+      <figure class="ph g-ph g-tall"  data-label="Фото 1"><img src="images/g1.jpg" alt="Букет из сада" loading="lazy" onerror="phFail(this)"></figure>
+      <figure class="ph g-ph"         data-label="Фото 2"><img src="images/g2.jpg" alt="Пионы" loading="lazy" onerror="phFail(this)"></figure>
+      <figure class="ph g-ph"         data-label="Фото 3"><img src="images/g3.jpg" alt="Розы на кусте" loading="lazy" onerror="phFail(this)"></figure>
+      <figure class="ph g-ph g-wide"  data-label="Фото 4"><img src="images/g4.jpg" alt="Клумба" loading="lazy" onerror="phFail(this)"></figure>
+      <figure class="ph g-ph"         data-label="Фото 5"><img src="images/g5.jpg" alt="Ромашки" loading="lazy" onerror="phFail(this)"></figure>
+      <figure class="ph g-ph g-tall"  data-label="Фото 6"><img src="images/g6.jpg" alt="Упакованный букет" loading="lazy" onerror="phFail(this)"></figure>
+      <figure class="ph g-ph"         data-label="Фото 7"><img src="images/g7.jpg" alt="Садовые розы" loading="lazy" onerror="phFail(this)"></figure>
+      <figure class="ph g-ph"         data-label="Фото 8"><img src="images/g8.jpg" alt="Букет крупным планом" loading="lazy" onerror="phFail(this)"></figure>
+    </div>
+
+    <p class="mt-9 text-center reveal">
+      <a href="https://www.instagram.com/nata.flowers.gomel/" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">
+        Больше фото в Instagram
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+    </p>
+  </div>
+</section>
+
+<!-- ══ REVIEWS ══ -->
+<section id="reviews" class="section">
+  <div class="mx-auto max-w-content px-5 sm:px-8">
+    <header class="section-head">
+      <p class="eyebrow reveal"><span class="eyebrow-dot" aria-hidden="true"></span>Отзывы</p>
+      <h2 class="h2 reveal">Что говорят</h2>
+    </header>
+
+    <!-- ⚠ ЗАГЛУШКИ. Замените текстом реальных отзывов из актуального «Отзывы» в Instagram.
+         Не публикуйте выдуманные отзывы, это вводит покупателей в заблуждение. -->
+    <div class="grid md:grid-cols-3 gap-5 lg:gap-6" id="reviews-grid">
+      <blockquote class="review reveal is-placeholder">
+        <p class="review-q">Сюда вставить реальный отзыв из актуального «Отзывы».</p>
+        <footer class="review-f">Имя покупателя</footer>
+      </blockquote>
+      <blockquote class="review reveal is-placeholder">
+        <p class="review-q">Сюда вставить реальный отзыв из актуального «Отзывы».</p>
+        <footer class="review-f">Имя покупателя</footer>
+      </blockquote>
+      <blockquote class="review reveal is-placeholder">
+        <p class="review-q">Сюда вставить реальный отзыв из актуального «Отзывы».</p>
+        <footer class="review-f">Имя покупателя</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PICKUP ══ -->
+<section id="pickup" class="section bg-cream-2">
+  <div class="mx-auto max-w-content px-5 sm:px-8">
+    <div class="pickup-card reveal">
+      <div>
+        <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Как забрать</p>
+        <h2 class="h2 mb-4">Самовывоз, Гомель</h2>
+        <p class="lede mb-0">
+          Забираете сами, приезжаете в <strong class="text-ink font-600">Западный район</strong>.
+          Точный адрес и время пришлю в переписке, когда договоримся о заказе.
+          Доставки пока нет: цветы срезаю под вас, и лучше, когда вы забираете их сразу.
+        </p>
+      </div>
+      <div class="pickup-aside">
+        <p class="pickup-k">Район</p><p class="pickup-v">Гомель, Западный</p>
+        <p class="pickup-k">Как договориться</p><p class="pickup-v">заранее, в переписке</p>
+        <p class="pickup-k">Доставка</p><p class="pickup-v">нет, только самовывоз</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact" class="section contact-section relative overflow-hidden">
+  <div class="contact-glow" aria-hidden="true"></div>
+  <div class="mx-auto max-w-content px-5 sm:px-8 relative text-center">
+    <p class="eyebrow eyebrow--light justify-center reveal"><span class="eyebrow-dot" aria-hidden="true"></span>Связаться</p>
+    <h2 class="h2 text-cream reveal">Напишите мне, обсудим букет</h2>
+    <p class="lede text-cream/75 mx-auto reveal">
+      Отвечаю сама. Удобнее всего в Instagram или Telegram, но можно и позвонить.
+    </p>
+
+    <div class="contact-grid reveal" id="contact-grid">
+      <!-- Ссылки подставляются из CONTACTS в js/main.js -->
+    </div>
+
+    <p class="font-hand text-[2.75rem] leading-tight text-peony-lt mt-12 reveal">До встречи на клумбе!</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="bg-garden-dk text-cream/60 py-9 text-sm">
+  <div class="mx-auto max-w-content px-5 sm:px-8 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+    <p><span class="font-display text-lg text-cream">Nata Flowers</span> · Наталья · Гомель</p>
+    <p>© <span id="year">2026</span> · Все фото мои</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
